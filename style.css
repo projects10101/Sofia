@@ -1,0 +1,550 @@
+@font-face {
+	font-family: "Pahuenga";
+	src: url("https://www.sicontis.com/codepen/cpc-happy-halloween/fonts/pahuenga_cass-webfont.woff2")
+			format("woff2"),
+		url("https://www.sicontis.com/codepen/cpc-happy-halloween/fonts/pahuenga_cass-webfont.woff")
+			format("woff");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Montserrat:wght@900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--black: #181818;
+	--white: #f3f3ed;
+	--red: #c50505;
+	--grey: #525252;
+	--pattern: url("https://www.transparenttextures.com/patterns/cardboard.png");
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	justify-items: center;
+	background: var(--white) var(--pattern);
+}
+
+.wrapper {
+	margin-top: 2em;
+	width: 100%;
+	max-width: 800px;
+	height: 500px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1.6fr 1fr 0.5fr;
+}
+
+.skullkat {
+	position: relative;
+}
+
+svg {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	translate: -50% 0;
+	width: 100%;
+	height: 100%;
+}
+svg #diamond {
+	stroke: var(--black);
+	fill: none;
+	stroke-width: 3;
+	transform-box: fill-box;
+	transform-origin: center;
+	transform: rotate(45deg);
+	scale: 0.8 1;
+}
+svg #ring {
+	stroke: var(--black);
+	fill: none;
+	stroke-width: 3;
+	transform-box: fill-box;
+	transform-origin: center;
+}
+svg #dot {
+	fill: var(--black);
+	stroke: none;
+	transform-box: fill-box;
+	transform-origin: center;
+}
+
+/* SKULL
+---------------------------------*/
+.skull {
+	position: absolute;
+	top: 8%;
+	left: 50%;
+	translate: -50% 0;
+	width: 170px;
+	height: 140px;
+	border: 5px solid var(--black);
+	border-radius: 50% / 60% 60% 50% 50%;
+	position: relative;
+	z-index: 20;
+}
+/* SKULL: CRESCENT */
+.skull__crescent {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	translate: -50% 0;
+	width: 35px;
+	height: 35px;
+	border-radius: 100% / 90% 70% 100% 90%;
+	background-color: var(--black);
+}
+.skull__crescent::after {
+	content: "";
+	position: absolute;
+	top: 10%;
+	left: 42%;
+	width: 26px;
+	height: 26px;
+	border-radius: 100% / 90% 70% 100% 90%;
+	background: var(--white) var(--pattern);
+}
+/* SKULL: EYES */
+.skull__eyes {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	translate: -50% 0;
+	width: 70%;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+.skull__eyes .eye {
+	width: 38px;
+	height: 38px;
+	border-radius: 100%;
+	background-color: var(--black);
+	position: relative;
+}
+.skull__eyes .eye::before,
+.skull__eyes .eye::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+}
+.skull__eyes .eye::before {
+	width: 43px;
+	height: 43px;
+	border-radius: 50%;
+	border-right: 2px dashed var(--black);
+	border-top: 2px solid var(--black);
+	border-left: 2px dashed var(--black);
+	border-bottom: 2px solid var(--white);
+}
+.skull__eyes .eye::after {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border-top: 2px dashed var(--black);
+	border-right: 2px solid var(--white);
+	border-bottom: 2px dashed var(--black);
+	border-left: 2px solid var(--black);
+}
+
+/* SKULL: NOSE */
+.skull__nose {
+	position: absolute;
+	top: 15%;
+	left: 49%;
+	translate: -49% 0;
+	width: 40%;
+	height: 30px;
+	position: relative;
+}
+.skull__nose .nose {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	width: 10px;
+	height: 30px;
+	border-radius: 70%;
+	rotate: 12deg 0;
+	transform-origin: 50% 0%;
+	background-color: var(--black);
+}
+.skull__nose .nose:last-child {
+	rotate: -12deg 0;
+}
+
+.skull__teeth {
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	translate: -50% 0;
+	width: 50%;
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+}
+.tooth {
+	width: 1.5em;
+	height: 55px;
+	background: var(--white) var(--pattern);
+	border-radius: 100% / 0% 0% 30% 30%;
+}
+.tooth:nth-of-type(1) {
+	rotate: 7deg 0;
+	height: 50px;
+	border-radius: 100% / 0% 0% 30% 80%;
+}
+.tooth:nth-of-type(3) {
+	rotate: -7deg 0;
+	height: 50px;
+	border-radius: 100% / 0% 0% 80% 30%;
+}
+
+/* CAT 
+---------------------------------*/
+.cat {
+	position: absolute;
+	top: 43%;
+	left: 50%;
+	translate: -50% 0;
+	width: 170px;
+	height: 150px;
+	background-color: var(--black);
+	border-radius: 100% / 50% 70% 50% 50%;
+}
+/* CAT: EARS */
+.cat__ears {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+	translate: 0 -30%;
+	position: relative;
+}
+.cat__ears .ear {
+	height: 80px;
+	width: 40px;
+	background-color: var(--black);
+	translate: -5px 0;
+	rotate: -10deg 0;
+	border-radius: 50% / 100% 80% 0% 0%;
+}
+.cat__ears .ear:last-child {
+	height: 80px;
+	width: 40px;
+	background-color: var(--black);
+	translate: 5px 0;
+	rotate: 10deg 0;
+	border-radius: 50% / 100% 80% 0% 0%;
+}
+/* CAT: EYES */
+.cat__eyes {
+	position: absolute;
+	top: -5%;
+	left: 50%;
+	translate: -50% 0;
+	width: 70%;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+.cat__eyes .eye {
+	width: 38px;
+	height: 38px;
+	border-radius: 100%;
+	background: var(--white) var(--pattern);
+	position: relative;
+}
+.cat__eyes .eye::before,
+.cat__eyes .eye::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	rotate: -45deg 0;
+	width: 5px;
+	height: 20px;
+	background-color: var(--black);
+	border-radius: 30%;
+}
+.cat__eyes .eye::after {
+	rotate: 45deg 0;
+}
+/* CAT: WHISKERS */
+.cat__whiskers {
+	position: absolute;
+	top: -30%;
+	left: 50%;
+	translate: -50% 0;
+	width: 124%;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+.whisker {
+	height: 10px;
+	width: 40px;
+	background-color: var(--black);
+	border-radius: 70%;
+	rotate: 5deg 0;
+}
+.whisker::before,
+.whisker::after {
+	content: "";
+	position: absolute;
+	height: inherit;
+	width: inherit;
+	border-radius: 70%;
+	background-color: var(--black);
+}
+.whisker::before {
+	top: 15px;
+	rotate: -5deg 0;
+}
+.whisker::after {
+	top: 30px;
+	rotate: -10deg 0;
+}
+.whisker:last-child {
+	rotate: -5deg 0;
+}
+.whisker:last-child::before {
+	rotate: 5deg 0;
+}
+.whisker:last-child::after {
+	rotate: 10deg 0;
+}
+/* CAT: NOSE */
+.cat__nose {
+	position: absolute;
+	top: -48%;
+	left: 50%;
+	translate: -50% 0;
+	width: 40%;
+	height: 50px;
+	position: relative;
+}
+.nostril {
+	width: 3px;
+	height: 36px;
+	background: var(--white) var(--pattern);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	rotate: -15deg 0;
+}
+.nostril::before {
+	content: "";
+	position: absolute;
+	left: -5px;
+	width: 12px;
+	height: 15px;
+	background-color: var(--white);
+	border-radius: 70%;
+}
+.nostril:last-child {
+	rotate: 15deg 0;
+}
+
+/* CROSSBONES 
+---------------------------------*/
+.crossbones {
+	width: 40%;
+	height: 120px;
+	position: relative;
+	align-self: center;
+	justify-self: center;
+}
+.pumpkin {
+	position: absolute;
+	top: -15%;
+	left: 50%;
+	translate: -50% 0;
+	width: 70px;
+	height: 60px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+.pumpkin::before {
+	content: "";
+	position: absolute;
+	z-index: 10;
+	width: 70px;
+	height: 60px;
+	background: conic-gradient(#0000 245deg, var(--red) 0 295deg, #0000 0) 40% 40% /
+			36% 24%,
+		conic-gradient(#0000 65deg, var(--red) 0 115deg, #0000 0) 60% 40% / 36% 24%;
+	background-repeat: no-repeat;
+}
+.slice {
+	width: 25px;
+	height: 50px;
+	background-color: var(--black);
+	border-radius: 100% / 50% 70% 50% 70%;
+}
+.slice:nth-of-type(1) {
+	scale: 1 0.9;
+	rotate: -8deg 0;
+	translate: 5px 2px;
+}
+.slice:nth-of-type(2) {
+	scale: 1;
+	border-left: 1px dotted var(--grey);
+	border-right: 1px dotted var(--grey);
+	position: relative;
+	z-index: 1;
+}
+.slice:nth-of-type(3) {
+	scale: 1 0.9;
+	rotate: 8deg 0;
+	translate: -5px 2px;
+}
+
+.bone {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	width: 80%;
+	height: 40px;
+	background-image: radial-gradient(
+			circle at 8% 30%,
+			var(--black) 7%,
+			transparent 0
+		),
+		radial-gradient(circle at 8% 70%, var(--black) 7%, transparent 0),
+		radial-gradient(circle at 92% 30%, var(--black) 7%, transparent 0),
+		radial-gradient(circle at 92% 70%, var(--black) 7%, transparent 0);
+	transform-origin: 50% 50%;
+	rotate: 30deg 0;
+}
+.bone::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	width: 75%;
+	height: 15px;
+	background-color: var(--black);
+}
+.bone:nth-of-type(2) {
+	rotate: -30deg 0;
+}
+.date {
+	width: 56%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	display: flex;
+	justify-content: space-between;
+}
+.date h3 {
+	font-size: 1.5rem;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 900;
+}
+.month {
+	width: 56%;
+	position: absolute;
+	top: 72%;
+	left: 50%;
+	translate: -50% 0;
+}
+.month h3 {
+	font-size: 1.5rem;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 900;
+	text-align: center;
+}
+
+/* TITLE 
+---------------------------------*/
+.title {
+	width: 100%;
+	height: 140px;
+	font-family: "Pahuenga", serif;
+	text-align: center;
+	text-transform: uppercase;
+	display: grid;
+	place-items: center;
+}
+.title h1 {
+	width: -webkit-min-content;
+	width: -moz-min-content;
+	width: min-content;
+	font-size: clamp(3rem, 8vw, 4rem);
+	line-height: 4rem;
+	letter-spacing: 5px;
+	color: red;
+	background-color: var(--black);
+	padding: 0.1em 0.1em 0 0.2em;
+	text-align: center;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	cursor: pointer;
+}
+.title h3 {
+	font-size: clamp(1.3rem, 6vw, 2rem);
+	letter-spacing: 3px;
+	color: var(--black);
+}
+
+
+.textMain {
+	font-size: 20px;
+}
+.textMain2 {
+	font-size: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+	.textMain {
+		font-size: 30px;
+	}
+	.textMain2 {
+		font-size: 40px;
+	}
+}
+
+@media (max-width: 400px) {
+	.wrapper {
+		height: 500px;
+	}
+	.bone {
+		background-image: radial-gradient(
+				circle at 8% 35%,
+				var(--black) 7%,
+				transparent 0
+			),
+			radial-gradient(circle at 8% 65%, var(--black) 7%, transparent 0),
+			radial-gradient(circle at 92% 35%, var(--black) 7%, transparent 0),
+			radial-gradient(circle at 92% 65%, var(--black) 7%, transparent 0);
+	}
+	.pumpkin {
+		width: 60px;
+		height: 50px;
+	}
+	.date h3 {
+		font-size: 1rem;
+	}
+	.month h3 {
+		font-size: 1rem;
+	}
+}

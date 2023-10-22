@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content = "width=device-width, initial-scale = 1">
+  <title>Halloween</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper" id="app">
+
+	<div class="skullkat">
+		<svg viewBox="0 0 400 400">
+			<defs>
+				<rect id="diamond" width="20" height="20" vector-effect="non-scaling-stroke" />
+				<ellipse id="ring" cx="5" cy="5" rx="5" />
+				<ellipse id="dot" cx="2" cy="2" rx="3" />
+			</defs>
+
+			<!-- Diamonds -->
+			<g v-for="diamond in diamonds" :key="diamond.x" :transform="`translate(${ diamond.x }, ${ diamond.y }) scale(${ diamond.s })`">
+				<use href="#diamond" />
+			</g>
+
+			<!-- Rings -->
+			<g v-for="ring in rings" :key="ring.x" :transform="`translate(${ ring.x }, ${ ring.y })`">
+				<use href="#ring" />
+			</g>
+
+			<!-- Dots -->
+			<g v-for="dot in dots" :key="dot.x" :transform="`translate(${ dot.x }, ${ dot.y })`">
+				<use href="#dot" />
+			</g>
+		</svg>
+		<div class="skull">
+			<div class="skull__crescent"></div>
+			<div class="skull__eyes">
+				<div class="eye" id="eye1"></div>
+				<div class="eye" id="eye2"></div>
+			</div>
+			<div class="skull__nose">
+				<div class="nose"></div>
+				<div class="nose"></div>
+			</div>
+			<div class="skull__teeth">
+				<div class="tooth"></div>
+				<div class="tooth"></div>
+				<div class="tooth"></div>
+			</div>
+		</div>
+
+		<div class="cat">
+			<div class="cat__ears">
+				<div class="ear"></div>
+				<div class="ear"></div>
+			</div>
+			<div class="cat__eyes">
+				<div class="eye" id="cateye1"></div>
+				<div class="eye" id="cateye2"></div>
+			</div>
+			<div class="cat__whiskers">
+				<div class="whisker"></div>
+				<div class="whisker"></div>
+			</div>
+			<div class="cat__nose">
+				<div class="nostril"></div>
+				<div class="nostril"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="crossbones">
+		<div class="pumpkin">
+			<div class="slice"></div>
+			<div class="slice"></div>
+			<div class="slice"></div>
+		</div>
+		<div class="bone" id="bone1"></div>
+		<div class="bone" id="bone2"></div>
+		<div class="date">
+			<h3>3</h3>
+			<h3>1</h3>
+		</div>
+		<div class="month">
+			<h3></h3>
+		</div>
+	</div>
+
+	<div class="title">
+		<h1 id="main-title" @click="init">Halloween 2023 </h1>
+		<p id="sub-title" class="textMain2" style="padding-top: 50px;"> 🎃 👻 SOFIA 🎃 👻</p>
+		<p id="sub-title" class="textMain" style="padding-bottom: 50px; padding-left: 30px; padding-right: 30px;">
+			<br>Я приглашаю тебя на вечеринку в честь Хэллоуина, в моем доме. 
+
+			<br>Обещаю, что это будет ночь полная веселья.
+
+			<br>И, конечно же, здесь будет много закусок и напитков.
+
+			<br>Обязательно приходите в своем самом жутком наряде (или маске).
+			<br>
+			<br>Твоя сестра, Лера
+		</p>		
+	</div>
+
+
+</div>
+
+
+<!-- Click Skullkats title to replay animation -->
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js'></script>
+<script src='https://unpkg.com/vue@3/dist/vue.global.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
